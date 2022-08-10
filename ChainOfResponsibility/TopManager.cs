@@ -1,10 +1,13 @@
-﻿internal class TopManager : Approver
+﻿namespace ChainOfResponsibility
 {
-    public override void Approve(Vacation vacation)
+    internal class TopManager : Approver
     {
-        if (vacation.Days > 5)
-            vacation.Approved = false;
+        public override void Approve(Vacation vacation)
+        {
+            if (vacation.Days > 5)
+                vacation.Approved = false;
         
-        DelegateToNextManager(vacation);
+            DelegateToNextManager(vacation);
+        }
     }
 }

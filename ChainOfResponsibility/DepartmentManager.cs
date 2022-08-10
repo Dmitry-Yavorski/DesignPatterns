@@ -1,10 +1,13 @@
-﻿internal class DepartmentManager: Approver
+﻿namespace ChainOfResponsibility
 {
-    public override void Approve(Vacation vacation)
+    internal class DepartmentManager: Approver
     {
-        if (!vacation.isFromManager)
-            vacation.Approved = true;
+        public override void Approve(Vacation vacation)
+        {
+            if (!vacation.isFromManager)
+                vacation.Approved = true;
         
-        DelegateToNextManager(vacation);
+            DelegateToNextManager(vacation);
+        }
     }
 }

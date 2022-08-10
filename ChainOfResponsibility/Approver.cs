@@ -1,4 +1,6 @@
-﻿internal abstract class Approver
+﻿using ChainOfResponsibility;
+
+internal abstract class Approver
 {
     public Approver Successor { get; set; }
     public abstract void Approve(Vacation vacation);
